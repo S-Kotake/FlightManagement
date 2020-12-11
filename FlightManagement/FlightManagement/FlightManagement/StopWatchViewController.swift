@@ -127,9 +127,9 @@ class StopWatchViewController: UIViewController {
             
             //データを保存
             self.insertData()
-            
-            //表示用データの更新
-            self.getData()
+                
+//            //表示用データの更新
+//            self.getData()
             
             //画面を閉じる
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
