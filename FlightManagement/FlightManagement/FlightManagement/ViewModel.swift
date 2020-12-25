@@ -12,9 +12,5 @@ class ViewModel: NSObject {
     
     static var maxRecordID = 0
     static var flightInfoArray: [FlightInfo] = []
-//    static var selectedDrone = ""
-//    static var selectedMode = ""
-//    static var flightPlace = ""
-    
     
 }

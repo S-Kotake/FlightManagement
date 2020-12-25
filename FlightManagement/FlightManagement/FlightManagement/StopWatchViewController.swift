@@ -29,7 +29,8 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -114,9 +115,8 @@ class StopWatchViewController: UIViewController {
         flightTime = hourLabel.text! + ":" + minuteLabel.text! + ":" + secondLabel.text!
     }
     
-    //記録を保存するボタン
     @IBAction func save(_ sender: UIButton) {
-        
+    
         let alert: UIAlertController = UIAlertController(title: "保存", message: "保存してもよろしいですか？", preferredStyle:  UIAlertController.Style.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
@@ -127,9 +127,6 @@ class StopWatchViewController: UIViewController {
             
             //データを保存
             self.insertData()
-                
-//            //表示用データの更新
-//            self.getData()
             
             //画面を閉じる
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -143,8 +140,9 @@ class StopWatchViewController: UIViewController {
         alert.addAction(defaultAction)
 
         present(alert, animated: true, completion: nil)
-    }
     
+    }
+
     //飛行実績を保存
     func insertData() {
         
@@ -177,27 +175,5 @@ class StopWatchViewController: UIViewController {
             }
         }
         ViewModel.maxRecordID = ViewModel.maxRecordID + 1
-    }
-    
-    //DB上のデータを全て取得し，表示用の配列を更新する
-    func getData() {
-        
-        //取得対象のコレクションを指定
-        let Ref = Firestore.firestore().collection("FlightInfo")
-
-        //getDocumentsでデータを取得
-        Ref.getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            //取得した各データを配列に入れ込む
-            ViewModel.flightInfoArray = querySnapshot!.documents.map { document in
-                let result = FlightInfo(document: document)
-                print("表示用データを更新しました")
-                return result
-            }
-            print(ViewModel.flightInfoArray.count)
-        }
     }
 }

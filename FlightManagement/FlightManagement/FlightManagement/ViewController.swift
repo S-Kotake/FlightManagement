@@ -9,14 +9,19 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIBarPositioningDelegate, UINavigationBarDelegate {
 
     @IBOutlet weak var myTableView: UITableView!
     //取得対象のコレクションを指定
     let Ref = Firestore.firestore().collection("FlightInfo")
     var activityIndicatorView = UIActivityIndicatorView()
+    var selectedDrone: String = ""
+    var selectedMode: String = ""
+    var flightPlace: String = ""
     
-    var sectionArray: [String] = []
+    @IBOutlet weak var myNavigationBar: UINavigationBar!
+    
+    //var sectionArray: [String] = []
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         myTableView.delegate = self
         myTableView.dataSource = self
-        
+        myNavigationBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,15 +192,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         //選択した飛行情報のレコードIDを保持
-        let targetRecordID = ViewModel.flightInfoArray[indexPath.row].recordID!.description
+        let targetRecordID = ViewModel.flightInfoArray[indexPath.row].recordID!
         //タップされたセルの色を通常色に戻す
          if let indexPathForSelectedRow = myTableView.indexPathForSelectedRow {
              myTableView.deselectRow(at: indexPathForSelectedRow, animated: true)
         }
+        
+        //表示対象の飛行情報を取得
+        for flightInfo in ViewModel.flightInfoArray {
+            //タップした情報のレコードIDをもつ情報を抽出
+            if flightInfo.recordID == targetRecordID {
+                selectedDrone = flightInfo.droneName!
+                selectedMode = flightInfo.flightMode!
+                flightPlace = flightInfo.flightPlace!
+            }
+        }
         //タスク詳細画面に遷移
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
-//        self.present(vc, animated: true, completion: nil)
-
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditRecordView") as! EditRecordViewController
+        if let secondVC = vc as? EditRecordViewController {
+            secondVC.recordID = targetRecordID
+            secondVC.selectedDrone = self.selectedDrone
+            secondVC.selectedMode = self.selectedMode
+            secondVC.flightPlace = self.flightPlace
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+         return .topAttached
     }
 }
 

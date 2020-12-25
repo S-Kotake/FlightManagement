@@ -9,12 +9,11 @@
 import UIKit
 import Eureka
 
-class EntryViewController : FormViewController, UINavigationBarDelegate {
+class EntryViewController : FormViewController, UINavigationBarDelegate, UIBarPositioningDelegate {
     
     var selectedDrone: String = ""
     var selectedMode: String = ""
     var flightPlace: String = ""
-    
     @IBOutlet weak var myNavigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -43,13 +42,13 @@ class EntryViewController : FormViewController, UINavigationBarDelegate {
                   return header
                 }()
         }
-    
+        
         //機体名
         let droneNameRow = PushRow<String>("DromeNameRowTag") {
             $0.title = "機体名"
             $0.value = Constants.droneName[0]
             $0.options = Constants.droneName
-            //未選択の場合の設定値
+            //未選択の場合はリスト先頭の機体名を設定する
             self.selectedDrone = $0.value!
             $0.onChange { row in
                 //値が変更されなかった場合，元の値を設定
@@ -60,6 +59,9 @@ class EntryViewController : FormViewController, UINavigationBarDelegate {
                 } else {
                     self.selectedDrone = row.value!
                 }
+            }
+            $0.onPresent { form, selectorController in
+                        selectorController.enableDeselection = false
             }
         }
         
@@ -79,6 +81,9 @@ class EntryViewController : FormViewController, UINavigationBarDelegate {
                 } else {
                     self.selectedMode = row.value!
                 }
+            }
+            $0.onPresent { form, selectorController in
+                        selectorController.enableDeselection = false
             }
         }
         
@@ -109,11 +114,6 @@ class EntryViewController : FormViewController, UINavigationBarDelegate {
         
     }
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
     @IBAction func done(_ sender: UIBarButtonItem) {
         //入力値の取得
         self.selectedDrone = (form.rowBy(tag: "DromeNameRowTag") as! PushRow<String>).value!
@@ -132,4 +132,7 @@ class EntryViewController : FormViewController, UINavigationBarDelegate {
         }
     }
     
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+         return .topAttached
+     }
 }

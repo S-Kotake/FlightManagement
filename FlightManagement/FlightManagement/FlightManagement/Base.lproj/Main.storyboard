@@ -1,35 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--飛行実績一覧-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlightInfoView" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USN-CI-TZr">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="飛行実績一覧" id="UdC-gn-s2R">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ev8-hJ-ere">
-                                            <connections>
-                                                <action selector="addRecord:" destination="BYZ-38-t0r" id="Vvj-aF-oJz"/>
-                                                <segue destination="Ot9-Ff-ahy" kind="show" id="rhY-jC-Rhu"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4d-iH-g3b">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <constraints>
@@ -47,52 +34,105 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j10-c4-gAb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="飛行実績一覧" id="V7T-74-Y8c">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TRS-2Z-LNu">
+                                            <connections>
+                                                <segue destination="Ot9-Ff-ahy" kind="show" id="WLb-u6-aJ9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VYW-Rl-r4c" firstAttribute="trailing" secondItem="S4d-iH-g3b" secondAttribute="trailing" id="2sy-1f-sv2"/>
-                            <constraint firstItem="USN-CI-TZr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="51q-3M-6sn"/>
+                            <constraint firstItem="VYW-Rl-r4c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AqY-gi-Zxe"/>
                             <constraint firstItem="S4d-iH-g3b" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EbH-XW-UFW"/>
                             <constraint firstItem="VYW-Rl-r4c" firstAttribute="leading" secondItem="S4d-iH-g3b" secondAttribute="leading" id="EmD-pK-MU5"/>
-                            <constraint firstItem="VYW-Rl-r4c" firstAttribute="top" secondItem="USN-CI-TZr" secondAttribute="bottom" id="F5T-gD-gih"/>
-                            <constraint firstItem="USN-CI-TZr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="O0F-Ik-cgY"/>
-                            <constraint firstItem="USN-CI-TZr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bEI-0F-RE3"/>
-                            <constraint firstItem="USN-CI-TZr" firstAttribute="trailing" secondItem="VYW-Rl-r4c" secondAttribute="trailing" id="dHz-Tj-Fhx"/>
+                            <constraint firstItem="VYW-Rl-r4c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PXB-iX-bz1"/>
                             <constraint firstItem="S4d-iH-g3b" firstAttribute="top" secondItem="VYW-Rl-r4c" secondAttribute="bottom" id="oiY-xo-Tpv"/>
-                            <constraint firstItem="USN-CI-TZr" firstAttribute="leading" secondItem="VYW-Rl-r4c" secondAttribute="leading" id="tua-Je-Wh4"/>
+                            <constraint firstItem="VYW-Rl-r4c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="yme-iQ-w4a"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="飛行実績一覧" id="tbv-cN-fm1">
+                        <barButtonItem key="rightBarButtonItem" title="追加" id="FWP-kH-zoP"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="myNavigationBar" destination="j10-c4-gAb" id="1sh-9Y-B6u"/>
                         <outlet property="myTableView" destination="VYW-Rl-r4c" id="s4c-Ng-VWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
         </scene>
-        <!--Entry View Controller-->
+        <!--Edit Record View Controller-->
+        <scene sceneID="SP3-O7-7FK">
+            <objects>
+                <viewController storyboardIdentifier="EditRecordView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="evF-HR-Bg6" customClass="EditRecordViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7wc-ID-JW7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zv4-uw-v17">
+                                <rect key="frame" x="0.0" y="37" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="飛行実績編集" id="bxK-NW-aZ0">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kD5-F0-iqT">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="1ga-Qt-uXx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kDJ-jR-nBC">
+                                            <connections>
+                                                <action selector="done:" destination="evF-HR-Bg6" id="MiD-EX-hAt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k6n-TC-hhZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="kD5-F0-iqT" id="BBL-WV-MQl"/>
+                        <outlet property="doneButton" destination="kDJ-jR-nBC" id="qcQ-za-0vU"/>
+                        <outlet property="myNavigationBar" destination="zv4-uw-v17" id="cJh-BD-C6b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bo-6C-Wws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="852"/>
+        </scene>
+        <!--飛行情報入力-->
         <scene sceneID="Xdr-xG-fOG">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Ot9-Ff-ahy" customClass="EntryViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryView" modalPresentationStyle="fullScreen" id="Ot9-Ff-ahy" customClass="EntryViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hBz-ui-d7S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uRB-Ri-wyW">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHc-Nr-n6w">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="飛行情報入力" id="hR7-qU-N8E">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="iIG-zE-gqU">
+                                    <navigationItem title="飛行実績入力" id="X6q-tI-Ml5">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ghT-MI-0yp">
                                             <connections>
-                                                <action selector="cancel:" destination="Ot9-Ff-ahy" id="fWJ-Yj-MWr"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="ddE-yI-pvL"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="QY7-Y3-NnD">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4MH-kG-Cd7">
                                             <connections>
-                                                <action selector="done:" destination="Ot9-Ff-ahy" id="LcW-WT-Ldh"/>
-                                                <segue destination="6ZX-Jf-TIt" kind="show" identifier="toStopWatchView" id="Rb2-Ix-WIT"/>
+                                                <segue destination="6ZX-Jf-TIt" kind="show" identifier="toStopWatchView" id="ZDP-V9-pSM"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -102,27 +142,33 @@
                         <viewLayoutGuide key="safeArea" id="TJF-Gs-cbz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OBk-uI-k28"/>
+                    <navigationItem key="navigationItem" title="飛行情報入力" id="OBk-uI-k28">
+                        <barButtonItem key="rightBarButtonItem" title="完了" id="G2N-E1-Jqn">
+                            <connections>
+                                <action selector="done:" destination="Ot9-Ff-ahy" id="JOH-wn-arM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="iIG-zE-gqU" id="TZy-OD-nkf"/>
-                        <outlet property="doneButton" destination="QY7-Y3-NnD" id="Fra-uN-jFY"/>
-                        <outlet property="myNavigationBar" destination="uRB-Ri-wyW" id="dAo-wm-YaJ"/>
+                        <outlet property="CancelButton" destination="ghT-MI-0yp" id="MzB-aR-Y8d"/>
+                        <outlet property="DoneButton" destination="4MH-kG-Cd7" id="6hf-hn-udo"/>
+                        <outlet property="myNavigationBar" destination="pHc-Nr-n6w" id="84c-QT-G2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sv6-F5-uKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="139"/>
+            <point key="canvasLocation" x="1863.7681159420292" y="138.61607142857142"/>
         </scene>
         <!--Stop Watch View Controller-->
         <scene sceneID="aLE-m4-MJh">
             <objects>
-                <viewController id="6ZX-Jf-TIt" customClass="StopWatchViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EDn-KQ-Pik">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController modalPresentationStyle="fullScreen" id="6ZX-Jf-TIt" customClass="StopWatchViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="StopWatchView" id="EDn-KQ-Pik">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDZ-Xi-pgo">
-                                <rect key="frame" x="15" y="514.5" width="100" height="100"/>
+                                <rect key="frame" x="15" y="568.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="92F-X7-C7b"/>
                                     <constraint firstAttribute="width" constant="100" id="at6-cO-1QY"/>
@@ -134,37 +180,37 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZk-kb-Pdt">
-                                <rect key="frame" x="19.5" y="180" width="91.5" height="90"/>
+                                <rect key="frame" x="19.5" y="234" width="91.5" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDX-kn-g69">
-                                <rect key="frame" x="161.5" y="180" width="91.5" height="90"/>
+                                <rect key="frame" x="161.5" y="234" width="91.5" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iK8-ta-8Vx">
-                                <rect key="frame" x="302" y="180" width="91.5" height="90"/>
+                                <rect key="frame" x="302" y="234" width="91.5" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKk-yb-NEc">
-                                <rect key="frame" x="119.5" y="180" width="35.5" height="90"/>
+                                <rect key="frame" x="119.5" y="234" width="35.5" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-lZ-MW4">
-                                <rect key="frame" x="261" y="180" width="33" height="90"/>
+                                <rect key="frame" x="261" y="234" width="33" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzi-th-eq9">
-                                <rect key="frame" x="298.5" y="513.5" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzi-th-eq9">
+                                <rect key="frame" x="302" y="568.5" width="100" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" red="0.05311380844" green="0.51563746129999999" blue="0.001365052832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="reset" backgroundImage="largecircle.fill.circle" catalog="system"/>
@@ -172,19 +218,27 @@
                                     <action selector="resetTimer:" destination="6ZX-Jf-TIt" eventType="touchUpInside" id="XoR-Bi-cKZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-tw-FLy">
-                                <rect key="frame" x="353" y="20" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="save"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-lN-NZH">
+                                <rect key="frame" x="19.5" y="44" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <action selector="save:" destination="6ZX-Jf-TIt" eventType="touchUpInside" id="sJy-Jh-q2F"/>
+                                    <segue destination="Ot9-Ff-ahy" kind="show" id="y6B-wn-aql"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-gi-EFb">
+                                <rect key="frame" x="356.5" y="44" width="37" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="6ZX-Jf-TIt" eventType="touchUpInside" id="ftH-Z2-C8D"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y1o-e9-14x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xDZ-Xi-pgo" firstAttribute="top" secondItem="kzi-th-eq9" secondAttribute="top" constant="1" id="0HG-fP-xwm"/>
+                            <constraint firstItem="xDZ-Xi-pgo" firstAttribute="top" secondItem="kzi-th-eq9" secondAttribute="top" id="0HG-fP-xwm"/>
                             <constraint firstItem="hDX-kn-g69" firstAttribute="centerX" secondItem="Y1o-e9-14x" secondAttribute="centerX" id="2Kz-Tj-Ltx"/>
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="trailing" secondItem="iK8-ta-8Vx" secondAttribute="trailing" constant="20.5" id="6VN-Vf-WcH"/>
                             <constraint firstItem="xDZ-Xi-pgo" firstAttribute="leading" secondItem="Y1o-e9-14x" secondAttribute="leading" constant="15" id="6dM-hr-aF7"/>
@@ -193,43 +247,56 @@
                             <constraint firstItem="hDX-kn-g69" firstAttribute="width" secondItem="iK8-ta-8Vx" secondAttribute="width" id="NjK-Gj-tsx"/>
                             <constraint firstItem="OKk-yb-NEc" firstAttribute="height" secondItem="iK8-ta-8Vx" secondAttribute="height" id="SGb-ZX-MLz"/>
                             <constraint firstItem="tyQ-lZ-MW4" firstAttribute="leading" secondItem="hDX-kn-g69" secondAttribute="trailing" constant="8" symbolic="YES" id="STS-1S-UTW"/>
+                            <constraint firstItem="dOd-gi-EFb" firstAttribute="trailing" secondItem="iK8-ta-8Vx" secondAttribute="trailing" id="T4L-7Z-GzK"/>
                             <constraint firstItem="xDZ-Xi-pgo" firstAttribute="centerX" secondItem="mZk-kb-Pdt" secondAttribute="centerX" id="Tne-9k-12W"/>
                             <constraint firstItem="mZk-kb-Pdt" firstAttribute="height" secondItem="iK8-ta-8Vx" secondAttribute="height" id="cHZ-vn-Y2c"/>
                             <constraint firstItem="hDX-kn-g69" firstAttribute="leading" secondItem="OKk-yb-NEc" secondAttribute="trailing" constant="6.5" id="de2-c7-91l"/>
                             <constraint firstItem="tyQ-lZ-MW4" firstAttribute="height" secondItem="iK8-ta-8Vx" secondAttribute="height" id="f09-ZF-0UI"/>
-                            <constraint firstItem="xDZ-Xi-pgo" firstAttribute="centerY" secondItem="kzi-th-eq9" secondAttribute="centerY" constant="1" id="f4b-zd-pv4"/>
+                            <constraint firstItem="xDZ-Xi-pgo" firstAttribute="centerY" secondItem="kzi-th-eq9" secondAttribute="centerY" id="f4b-zd-pv4"/>
                             <constraint firstItem="iK8-ta-8Vx" firstAttribute="top" secondItem="hDX-kn-g69" secondAttribute="top" id="gea-1m-lqn"/>
                             <constraint firstItem="OKk-yb-NEc" firstAttribute="top" secondItem="hDX-kn-g69" secondAttribute="top" id="geo-YC-HPM"/>
                             <constraint firstItem="tyQ-lZ-MW4" firstAttribute="top" secondItem="hDX-kn-g69" secondAttribute="top" id="hdf-DA-smM"/>
                             <constraint firstItem="kzi-th-eq9" firstAttribute="height" secondItem="xDZ-Xi-pgo" secondAttribute="height" id="hs2-B4-Ifb"/>
                             <constraint firstItem="mZk-kb-Pdt" firstAttribute="top" secondItem="hDX-kn-g69" secondAttribute="top" id="iRo-uU-INX"/>
-                            <constraint firstItem="Y1o-e9-14x" firstAttribute="trailing" secondItem="bbv-tw-FLy" secondAttribute="trailing" constant="20" id="jgb-f4-Szb"/>
-                            <constraint firstItem="Y1o-e9-14x" firstAttribute="trailing" secondItem="kzi-th-eq9" secondAttribute="trailing" constant="17" id="kgh-qJ-cuQ"/>
+                            <constraint firstItem="cTE-lN-NZH" firstAttribute="leading" secondItem="mZk-kb-Pdt" secondAttribute="leading" id="jrq-YD-jdw"/>
+                            <constraint firstItem="Y1o-e9-14x" firstAttribute="trailing" secondItem="kzi-th-eq9" secondAttribute="trailing" constant="12" id="kgh-qJ-cuQ"/>
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="bottom" secondItem="xDZ-Xi-pgo" secondAttribute="bottom" constant="193" id="lfD-vT-Rj4"/>
                             <constraint firstItem="kzi-th-eq9" firstAttribute="width" secondItem="xDZ-Xi-pgo" secondAttribute="width" id="oKe-AI-Gsi"/>
-                            <constraint firstItem="kzi-th-eq9" firstAttribute="bottom" secondItem="xDZ-Xi-pgo" secondAttribute="bottom" constant="-1" id="rOZ-qs-Qek"/>
-                            <constraint firstItem="bbv-tw-FLy" firstAttribute="top" secondItem="EDn-KQ-Pik" secondAttribute="top" constant="20" symbolic="YES" id="sc5-13-awq"/>
+                            <constraint firstItem="dOd-gi-EFb" firstAttribute="baseline" secondItem="cTE-lN-NZH" secondAttribute="baseline" id="phu-h5-X4q"/>
+                            <constraint firstItem="kzi-th-eq9" firstAttribute="bottom" secondItem="xDZ-Xi-pgo" secondAttribute="bottom" id="rOZ-qs-Qek"/>
+                            <constraint firstItem="dOd-gi-EFb" firstAttribute="top" secondItem="Y1o-e9-14x" secondAttribute="top" id="rfh-mN-fcg"/>
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="bottom" secondItem="hDX-kn-g69" secondAttribute="bottom" constant="538" id="wT5-Nq-5h7"/>
                             <constraint firstItem="OKk-yb-NEc" firstAttribute="leading" secondItem="mZk-kb-Pdt" secondAttribute="trailing" constant="8.5" id="xPw-KH-q13"/>
                             <constraint firstItem="mZk-kb-Pdt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y1o-e9-14x" secondAttribute="leading" id="yl7-Ni-crM"/>
                             <constraint firstItem="hDX-kn-g69" firstAttribute="height" secondItem="iK8-ta-8Vx" secondAttribute="height" id="z9W-O3-TRg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4vp-Mj-8Rc"/>
+                    <navigationItem key="navigationItem" id="4vp-Mj-8Rc">
+                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="FLF-F5-NEJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="1oF-dQ-Ric">
+                            <connections>
+                                <action selector="save:" destination="6ZX-Jf-TIt" id="7oi-HA-uUI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="hourLabel" destination="mZk-kb-Pdt" id="x39-76-ewU"/>
                         <outlet property="minuteLabel" destination="hDX-kn-g69" id="nQN-iB-8nu"/>
                         <outlet property="resetButton" destination="kzi-th-eq9" id="y9B-RA-aDl"/>
-                        <outlet property="saveButton" destination="bbv-tw-FLy" id="0Ut-uw-Iut"/>
+                        <outlet property="saveButton" destination="dOd-gi-EFb" id="5wG-79-UdU"/>
                         <outlet property="secondLabel" destination="iK8-ta-8Vx" id="RiJ-98-odE"/>
                         <outlet property="startButton" destination="xDZ-Xi-pgo" id="KoY-px-QgR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKp-fj-g2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.913043478261" y="138.61607142857142"/>
+            <point key="canvasLocation" x="2684.057971014493" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WLb-u6-aJ9"/>
+        <segue reference="1ga-Qt-uXx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>
         <image name="timer" catalog="system" width="128" height="121"/>
