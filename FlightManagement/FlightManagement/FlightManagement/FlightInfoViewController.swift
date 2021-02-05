@@ -9,47 +9,55 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIBarPositioningDelegate, UINavigationBarDelegate {
+class FlightInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIBarPositioningDelegate, UINavigationBarDelegate {
 
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     //取得対象のコレクションを指定
     let Ref = Firestore.firestore().collection("FlightInfo")
     var activityIndicatorView = UIActivityIndicatorView()
-    var selectedDrone: String = ""
-    var selectedMode: String = ""
-    var flightPlace: String = ""
+    var selectedDrone = ""
+    var selectedMode = ""
+    var flightPlace = ""
     
     @IBOutlet weak var myNavigationBar: UINavigationBar!
-    
-    //var sectionArray: [String] = []
      
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        myTableView.delegate = self
+        myTableView.dataSource = self
         
+        myNavigationBar.delegate = self
+        let navItem : UINavigationItem = UINavigationItem(title: ViewModel.selectedOperatorName + "さんの飛行実績")
+        navItem.hidesBackButton = true
+        navItem.rightBarButtonItem = addButton
+        navItem.leftBarButtonItem = cancelButton
+        myNavigationBar.pushItem(navItem, animated: true)
+        self.view.addSubview(myNavigationBar)
+        
+        //ロード中に表示するインジケータを設定
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .large
         activityIndicatorView.color = .darkGray
-
         view.addSubview(activityIndicatorView)
-        
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        myNavigationBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //表示データの取得
-        self.getData()
-        //self.makeSections()
+        self.getFlightData()
         myTableView.reloadData()
     }
     
     //データ取得
-    func getData() {
-        
+    func getFlightData() {
+        //インジケータ表示
         self.activityIndicatorView.startAnimating()
+        
         //getDocumentsでデータを取得
-        Ref.getDocuments() { (querySnapshot, error) in
+        Ref.whereField("OperatorID", isEqualTo: ViewModel.selectedOperatorID).getDocuments(){ (querySnapshot, error) in
             if let error = error {
                 print(error)
                 return
@@ -65,20 +73,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
-    
-//    func makeSections() {
-//
-//        var flightDate = ""
-//
-//        for flightInfo in ViewModel.flightInfoArray {
-//            flightDate = flightInfo.flightDate!
-//            //重複なくセクション名を抽出
-//            if !sectionArray.contains(flightDate) {
-//                sectionArray.append(flightDate)
-//            }
-//        }
-//        print(sectionArray)
-//    }
     
     @IBAction func calcTotalTime(_ sender: UIBarButtonItem) {
         
@@ -112,7 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             totalTime = String(format: "%02d", totalHours) + "時間" + String(format: "%02d", totalMinutes) + "分" + String(format: "%02d", totalSeconds) + "秒"
         }
         
-        let alert: UIAlertController = UIAlertController(title: "あなたの累計飛行時間", message: totalTime, preferredStyle:  UIAlertController.Style.alert)
+        let alert: UIAlertController = UIAlertController(title: ViewModel.selectedOperatorName + "さんの累計飛行時間", message: totalTime, preferredStyle:  UIAlertController.Style.alert)
 
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
@@ -131,18 +125,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-//    //セクションの数を返す
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//
-//        return sectionArray.count
-//    }
-//
-//    //セクションのタイトルを返す
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        return sectionArray[section]
-//    }
-    
     //テーブルの行数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -154,11 +136,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell") ??
             UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.text = "機体：" + ViewModel.flightInfoArray[indexPath.row].droneName! + " 飛行時間：" +  ViewModel.flightInfoArray[indexPath.row].flightTime!
-        
-        //if indexPath.section == ViewModel.flightInfoArray[indexPath.row].flightDate {
-        //    cell.textLabel?.text = "機体：" + ViewModel.flightInfoArray[indexPath.row].droneName! + " 飛行時間：" +  ViewModel.flightInfoArray[indexPath.row].flightTime!
-        //}
-        
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         
         return cell
@@ -209,11 +186,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         //タスク詳細画面に遷移
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditRecordView") as! EditRecordViewController
-        if let secondVC = vc as? EditRecordViewController {
-            secondVC.recordID = targetRecordID
-            secondVC.selectedDrone = self.selectedDrone
-            secondVC.selectedMode = self.selectedMode
-            secondVC.flightPlace = self.flightPlace
+        if let nextVC = vc as? EditRecordViewController {
+            nextVC.recordID = targetRecordID
+            nextVC.selectedDrone = self.selectedDrone
+            nextVC.selectedMode = self.selectedMode
+            nextVC.flightPlace = self.flightPlace
         }
         self.present(vc, animated: true, completion: nil)
     }

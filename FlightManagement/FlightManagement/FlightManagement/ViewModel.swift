@@ -11,6 +11,8 @@ import Foundation
 class ViewModel: NSObject {
     
     static var maxRecordID = 0
+    static var selectedOperatorID = ""
+    static var selectedOperatorName = ""
     static var flightInfoArray: [FlightInfo] = []
     
 }

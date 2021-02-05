@@ -99,7 +99,7 @@ class EntryViewController : FormViewController, UINavigationBarDelegate, UIBarPo
                 }
             }
         }
-        
+
         let droneNameSection = Section("機体名")
         droneNameSection.append(droneNameRow)
         let flightModeSection = Section("飛行モード")

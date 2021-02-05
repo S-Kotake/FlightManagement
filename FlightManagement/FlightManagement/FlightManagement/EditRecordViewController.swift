@@ -17,6 +17,7 @@ class EditRecordViewController: FormViewController, UINavigationBarDelegate, UIB
     var selectedDrone: String = ""
     var selectedMode: String = ""
     var flightPlace: String = ""
+    let Ref = Firestore.firestore().collection("FlightInfo")
     @IBOutlet weak var myNavigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -148,8 +149,7 @@ class EditRecordViewController: FormViewController, UINavigationBarDelegate, UIB
     
     func updateData() {
         
-        let db = Firestore.firestore()
-        db.collection("FlightInfo").document(self.recordID.description).updateData([
+        Ref.document(self.recordID.description).updateData([
             "DroneName": self.selectedDrone,
             "FlightMode": self.selectedMode,
             "FlightPlace": self.flightPlace,

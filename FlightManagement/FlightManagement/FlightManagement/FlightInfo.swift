@@ -13,6 +13,7 @@ class FlightInfo: NSObject {
     
     var recordID: Int?
     var userID: String?
+    var operatorID: String?
     var droneName: String?
     var flightDate: String?
     var flightMode: String?
@@ -25,6 +26,7 @@ class FlightInfo: NSObject {
         let dic = document.data()
         self.recordID = dic["RecordID"] as? Int
         self.userID = dic["UserID"] as? String
+        self.operatorID = dic["OperatorID"] as? String
         self.droneName = dic["DroneName"] as? String
         self.flightDate = dic["FlightDate"] as? String
         self.flightMode = dic["FlightMode"] as? String

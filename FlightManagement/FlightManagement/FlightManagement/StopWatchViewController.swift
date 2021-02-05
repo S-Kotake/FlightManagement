@@ -12,16 +12,21 @@ import FirebaseFirestore
 class StopWatchViewController: UIViewController {
     
     //全画面からの引き継ぎ値
-    var selectedDrone: String = ""
-    var selectedMode: String = ""
-    var flightPlace: String = ""
-    var flightTime: String = ""
+    var selectedDrone = ""
+    var selectedMode = ""
+    var flightPlace = ""
+    var flightTime = ""
     
-    var isRunning: Bool = false
+    var isRunning = false
+    var getDateFlg = false
     var timer: Timer?
     var timeForDisplay: Int = 0
     
     var recordID: String = ""
+    
+    //飛行開始・終了時刻
+    var startDate = ""
+    var endDate = ""
     
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
@@ -51,6 +56,13 @@ class StopWatchViewController: UIViewController {
         //ストップウォッチを開始(再開)
         if !isRunning {
             
+            if !getDateFlg {
+            
+                startDate = Constants.recordDateFormatter.string(from: Date())
+                getDateFlg = true
+            }
+            
+            
             timer = Timer()
             //スケジュール重複を防ぐ
             guard timer == nil else { return }
@@ -66,6 +78,7 @@ class StopWatchViewController: UIViewController {
 
         //ストップウォッチを停止
         } else {
+            endDate = Constants.recordDateFormatter.string(from: Date())
             //タイマーのインスタンスを破棄
             timer?.invalidate()
             
@@ -86,6 +99,8 @@ class StopWatchViewController: UIViewController {
         hourLabel.text = "00"
         minuteLabel.text = "00"
         secondLabel.text = "00"
+        
+        getDateFlg = false
     }
     
     //表示用の時間を計算するメソッド
@@ -122,6 +137,7 @@ class StopWatchViewController: UIViewController {
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
             
+            self.getDateFlg = false
             //レコードIDを発行
             self.getRecordID()
             
@@ -149,11 +165,13 @@ class StopWatchViewController: UIViewController {
         let db = Firestore.firestore()
         db.collection("FlightInfo").document(ViewModel.maxRecordID.description).setData([
             "RecordID": ViewModel.maxRecordID,
-            "UserID": "kotake",
+            "OperatorID": ViewModel.selectedOperatorID,
             "DroneName": selectedDrone,
             "FlightDate": Constants.dateFormatter.string(from: Date()),
             "FlightMode": selectedMode,
             "FlightPlace": flightPlace,
+            "FlightStartTime": startDate,
+            "FlightEndTime": endDate,
             "FlightTime": flightTime,
             "Timestamp": FieldValue.serverTimestamp()
         
