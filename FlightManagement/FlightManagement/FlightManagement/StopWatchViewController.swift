@@ -158,6 +158,44 @@ class StopWatchViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     
     }
+    
+    @IBAction func EnterLevel(_ sender: UIButton) {
+        
+        var alertTextField: UITextField?
+
+        let alert = UIAlertController(
+            title: "レベル入力",
+            message: "操縦レベルを入力してください。",
+            preferredStyle: UIAlertController.Style.alert)
+        
+//        alert.addTextField { textField in
+//            let heightConstraint = NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+//            textField.addConstraint(heightConstraint)
+//        }
+        
+        alert.addTextField(
+            configurationHandler: {(textField: UITextField!) in
+                alertTextField = textField
+                textField.frame.size = CGSize(width: 50, height: 200)
+                textField.placeholder = "基本移動Aモード習得"
+        })
+        alert.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: UIAlertAction.Style.cancel,
+                handler: nil))
+        alert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: UIAlertAction.Style.default) { _ in
+                ViewModel.memo = (alertTextField?.text)!
+            }
+        )
+
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
 
     //飛行実績を保存
     func insertData() {
@@ -173,6 +211,7 @@ class StopWatchViewController: UIViewController {
             "FlightStartTime": startDate,
             "FlightEndTime": endDate,
             "FlightTime": flightTime,
+            "Memo": ViewModel.memo,
             "Timestamp": FieldValue.serverTimestamp()
         
         ]) { error in

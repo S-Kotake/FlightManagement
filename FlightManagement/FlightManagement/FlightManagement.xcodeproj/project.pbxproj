@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5D1ADDF42575E78E00D5ADB0 /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ADDF32575E78E00D5ADB0 /* FlightInfo.swift */; };
+		5D74DAFD25C8E384003AD483 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74DAFC25C8E384003AD483 /* StartViewController.swift */; };
+		5D74DB0125C8F1EF003AD483 /* OperatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74DB0025C8F1EF003AD483 /* OperatorInfo.swift */; };
 		5D990FF6253D3098000CEC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D990FF5253D3098000CEC47 /* AppDelegate.swift */; };
 		5D990FF8253D3098000CEC47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D990FF7253D3098000CEC47 /* SceneDelegate.swift */; };
-		5D990FFA253D3098000CEC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D990FF9253D3098000CEC47 /* ViewController.swift */; };
+		5D990FFA253D3098000CEC47 /* FlightInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D990FF9253D3098000CEC47 /* FlightInfoViewController.swift */; };
 		5D990FFD253D3098000CEC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D990FFB253D3098000CEC47 /* Main.storyboard */; };
 		5D990FFF253D3099000CEC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D990FFE253D3099000CEC47 /* Assets.xcassets */; };
 		5D991002253D3099000CEC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D991000253D3099000CEC47 /* LaunchScreen.storyboard */; };
@@ -20,15 +22,18 @@
 		5D991010253D6BE2000CEC47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D99100F253D6BE2000CEC47 /* GoogleService-Info.plist */; };
 		5D991012253D7D6B000CEC47 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D991011253D7D6B000CEC47 /* StopWatchViewController.swift */; };
 		5DC818252595BE7100B73C30 /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC818242595BE7100B73C30 /* EditRecordViewController.swift */; };
+		5DD84F3525E3A28800305182 /* SetLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD84F3425E3A28800305182 /* SetLevelViewController.swift */; };
 		D59C1BFD9274F0116C80FDF6 /* Pods_FlightManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769EC1CC73A74CAE0FFF3700 /* Pods_FlightManagement.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D1ADDF32575E78E00D5ADB0 /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
+		5D74DAFC25C8E384003AD483 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		5D74DB0025C8F1EF003AD483 /* OperatorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorInfo.swift; sourceTree = "<group>"; };
 		5D990FF2253D3098000CEC47 /* FlightManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D990FF5253D3098000CEC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D990FF7253D3098000CEC47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5D990FF9253D3098000CEC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5D990FF9253D3098000CEC47 /* FlightInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoViewController.swift; sourceTree = "<group>"; };
 		5D990FFC253D3098000CEC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D990FFE253D3099000CEC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D991001253D3099000CEC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 		5D99100F253D6BE2000CEC47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D991011253D7D6B000CEC47 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		5DC818242595BE7100B73C30 /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
+		5DD84F3425E3A28800305182 /* SetLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLevelViewController.swift; sourceTree = "<group>"; };
 		769EC1CC73A74CAE0FFF3700 /* Pods_FlightManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE4D0251A8B74A8DA3222BD /* Pods-FlightManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightManagement.debug.xcconfig"; path = "Target Support Files/Pods-FlightManagement/Pods-FlightManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC0A2F66A680CC4E35E1AF1 /* Pods-FlightManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightManagement.release.xcconfig"; path = "Target Support Files/Pods-FlightManagement/Pods-FlightManagement.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,13 +93,16 @@
 			children = (
 				5D990FF5253D3098000CEC47 /* AppDelegate.swift */,
 				5D990FF7253D3098000CEC47 /* SceneDelegate.swift */,
-				5D990FF9253D3098000CEC47 /* ViewController.swift */,
+				5D74DAFC25C8E384003AD483 /* StartViewController.swift */,
+				5D990FF9253D3098000CEC47 /* FlightInfoViewController.swift */,
 				5D99100B253D371A000CEC47 /* EntryViewController.swift */,
 				5DC818242595BE7100B73C30 /* EditRecordViewController.swift */,
 				5D991011253D7D6B000CEC47 /* StopWatchViewController.swift */,
+				5DD84F3425E3A28800305182 /* SetLevelViewController.swift */,
 				5D99100D253D6211000CEC47 /* ViewModel.swift */,
 				5D991009253D3122000CEC47 /* Constants.swift */,
 				5D1ADDF32575E78E00D5ADB0 /* FlightInfo.swift */,
+				5D74DB0025C8F1EF003AD483 /* OperatorInfo.swift */,
 				5D990FFB253D3098000CEC47 /* Main.storyboard */,
 				5D990FFE253D3099000CEC47 /* Assets.xcassets */,
 				5D991000253D3099000CEC47 /* LaunchScreen.storyboard */,
@@ -228,14 +237,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D990FFA253D3098000CEC47 /* ViewController.swift in Sources */,
+				5D990FFA253D3098000CEC47 /* FlightInfoViewController.swift in Sources */,
 				5DC818252595BE7100B73C30 /* EditRecordViewController.swift in Sources */,
 				5D99100C253D371A000CEC47 /* EntryViewController.swift in Sources */,
 				5D990FF6253D3098000CEC47 /* AppDelegate.swift in Sources */,
 				5D1ADDF42575E78E00D5ADB0 /* FlightInfo.swift in Sources */,
+				5D74DB0125C8F1EF003AD483 /* OperatorInfo.swift in Sources */,
 				5D990FF8253D3098000CEC47 /* SceneDelegate.swift in Sources */,
 				5D99100E253D6211000CEC47 /* ViewModel.swift in Sources */,
 				5D991012253D7D6B000CEC47 /* StopWatchViewController.swift in Sources */,
+				5D74DAFD25C8E384003AD483 /* StartViewController.swift in Sources */,
+				5DD84F3525E3A28800305182 /* SetLevelViewController.swift in Sources */,
 				5D99100A253D3122000CEC47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

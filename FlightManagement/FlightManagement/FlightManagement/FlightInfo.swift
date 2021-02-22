@@ -19,6 +19,7 @@ class FlightInfo: NSObject {
     var flightMode: String?
     var flightPlace: String?
     var flightTime: String?
+    var memo: String?
     var timestamp: Date?
 
     init(document: QueryDocumentSnapshot) {
@@ -32,6 +33,7 @@ class FlightInfo: NSObject {
         self.flightMode = dic["FlightMode"] as? String
         self.flightPlace = dic["FlightPlace"] as? String
         self.flightTime = dic["FlightTime"] as? String
+        self.memo = dic["Memo"] as? String
         self.timestamp = dic["Timestamp"] as? Date
         
    }
