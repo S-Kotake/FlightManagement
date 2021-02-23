@@ -14,6 +14,7 @@ class EntryViewController : FormViewController, UINavigationBarDelegate, UIBarPo
     var selectedDrone: String = ""
     var selectedMode: String = ""
     var flightPlace: String = ""
+    var level: String = ""
     @IBOutlet weak var myNavigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -129,6 +130,7 @@ class EntryViewController : FormViewController, UINavigationBarDelegate, UIBarPo
             nextVC.selectedDrone = self.selectedDrone
             nextVC.selectedMode = self.selectedMode
             nextVC.flightPlace = self.flightPlace
+            nextVC.level = self.level
         }
     }
     

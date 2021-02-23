@@ -11,14 +11,16 @@ import FirebaseFirestore
 
 class OperatorInfo: NSObject {
     
-    var operatorID: String?
+    var operatorID: Int?
     var operatorName: String?
+    var skillLevel: String?
 
     init(document: QueryDocumentSnapshot) {
         
         let dic = document.data()
 
-        self.operatorID = dic["OperatorID"] as? String
+        self.operatorID = dic["OperatorID"] as? Int
         self.operatorName = dic["OperatorName"] as? String
+        self.skillLevel = dic["SkillLevel"] as? String
    }
 }

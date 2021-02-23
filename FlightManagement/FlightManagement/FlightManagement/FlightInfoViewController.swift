@@ -14,15 +14,15 @@ class FlightInfoViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
-    
+    @IBOutlet weak var myNavigationBar: UINavigationBar!
+
     //取得対象のコレクションを指定
     let Ref = Firestore.firestore().collection("FlightInfo")
     var activityIndicatorView = UIActivityIndicatorView()
     var selectedDrone = ""
     var selectedMode = ""
     var flightPlace = ""
-    
-    @IBOutlet weak var myNavigationBar: UINavigationBar!
+    var level = ""
      
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,14 +11,10 @@ import Foundation
 class ViewModel: NSObject {
     
     static var maxRecordID = 0
-    static var selectedOperatorID = ""
+    static var selectedOperatorID = 0
     static var selectedOperatorName = ""
+    static var skillLevel = ""
     static var flightInfoArray: [FlightInfo] = []
-    
-    
-    //レベル手入力
-    static var memo = ""
-    
     
     //レベル設定画面用項目
     //ホバリング

@@ -23,6 +23,8 @@
 		5D991012253D7D6B000CEC47 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D991011253D7D6B000CEC47 /* StopWatchViewController.swift */; };
 		5DC818252595BE7100B73C30 /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC818242595BE7100B73C30 /* EditRecordViewController.swift */; };
 		5DD84F3525E3A28800305182 /* SetLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD84F3425E3A28800305182 /* SetLevelViewController.swift */; };
+		BA5A934C25E515060083BD8A /* SkillLevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A934B25E515060083BD8A /* SkillLevelInfo.swift */; };
+		BA5A935125E5403F0083BD8A /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A935025E5403F0083BD8A /* AddUserViewController.swift */; };
 		D59C1BFD9274F0116C80FDF6 /* Pods_FlightManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769EC1CC73A74CAE0FFF3700 /* Pods_FlightManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		769EC1CC73A74CAE0FFF3700 /* Pods_FlightManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE4D0251A8B74A8DA3222BD /* Pods-FlightManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightManagement.debug.xcconfig"; path = "Target Support Files/Pods-FlightManagement/Pods-FlightManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC0A2F66A680CC4E35E1AF1 /* Pods-FlightManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightManagement.release.xcconfig"; path = "Target Support Files/Pods-FlightManagement/Pods-FlightManagement.release.xcconfig"; sourceTree = "<group>"; };
+		BA5A934B25E515060083BD8A /* SkillLevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelInfo.swift; sourceTree = "<group>"; };
+		BA5A935025E5403F0083BD8A /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				5D990FF5253D3098000CEC47 /* AppDelegate.swift */,
 				5D990FF7253D3098000CEC47 /* SceneDelegate.swift */,
 				5D74DAFC25C8E384003AD483 /* StartViewController.swift */,
+				BA5A935025E5403F0083BD8A /* AddUserViewController.swift */,
 				5D990FF9253D3098000CEC47 /* FlightInfoViewController.swift */,
 				5D99100B253D371A000CEC47 /* EntryViewController.swift */,
 				5DC818242595BE7100B73C30 /* EditRecordViewController.swift */,
@@ -103,6 +108,7 @@
 				5D991009253D3122000CEC47 /* Constants.swift */,
 				5D1ADDF32575E78E00D5ADB0 /* FlightInfo.swift */,
 				5D74DB0025C8F1EF003AD483 /* OperatorInfo.swift */,
+				BA5A934B25E515060083BD8A /* SkillLevelInfo.swift */,
 				5D990FFB253D3098000CEC47 /* Main.storyboard */,
 				5D990FFE253D3099000CEC47 /* Assets.xcassets */,
 				5D991000253D3099000CEC47 /* LaunchScreen.storyboard */,
@@ -238,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D990FFA253D3098000CEC47 /* FlightInfoViewController.swift in Sources */,
+				BA5A934C25E515060083BD8A /* SkillLevelInfo.swift in Sources */,
 				5DC818252595BE7100B73C30 /* EditRecordViewController.swift in Sources */,
 				5D99100C253D371A000CEC47 /* EntryViewController.swift in Sources */,
 				5D990FF6253D3098000CEC47 /* AppDelegate.swift in Sources */,
@@ -247,6 +254,7 @@
 				5D99100E253D6211000CEC47 /* ViewModel.swift in Sources */,
 				5D991012253D7D6B000CEC47 /* StopWatchViewController.swift in Sources */,
 				5D74DAFD25C8E384003AD483 /* StartViewController.swift in Sources */,
+				BA5A935125E5403F0083BD8A /* AddUserViewController.swift in Sources */,
 				5DD84F3525E3A28800305182 /* SetLevelViewController.swift in Sources */,
 				5D99100A253D3122000CEC47 /* Constants.swift in Sources */,
 			);
@@ -394,13 +402,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87UT27Z98Y;
+				DEVELOPMENT_TEAM = DLB689VJR4;
 				INFOPLIST_FILE = FlightManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.enecom.FlightManagement;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.0408.loveup.pg.FlightManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,13 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87UT27Z98Y;
+				DEVELOPMENT_TEAM = DLB689VJR4;
 				INFOPLIST_FILE = FlightManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.enecom.FlightManagement;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.0408.loveup.pg.FlightManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

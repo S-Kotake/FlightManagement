@@ -45,6 +45,13 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="mBa-hG-qTM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihg-SK-Rpv">
+                                <rect key="frame" x="161" y="671" width="92" height="30"/>
+                                <state key="normal" title="ユーザー追加"/>
+                                <connections>
+                                    <segue destination="5co-kV-YHF" kind="show" identifier="" id="ncY-7k-wfR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7e3-ZW-yDc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,10 +60,12 @@
                             <constraint firstItem="Flc-NN-2HJ" firstAttribute="top" secondItem="Mvx-ZK-caR" secondAttribute="bottom" constant="8" symbolic="YES" id="D8i-Kp-py5"/>
                             <constraint firstItem="Rkg-re-RT9" firstAttribute="leading" secondItem="cUD-gD-eXM" secondAttribute="leading" id="KtR-uI-3j0"/>
                             <constraint firstItem="Flc-NN-2HJ" firstAttribute="centerX" secondItem="J30-hA-DHI" secondAttribute="centerX" id="QJB-VQ-Mqi"/>
+                            <constraint firstItem="ihg-SK-Rpv" firstAttribute="centerX" secondItem="J30-hA-DHI" secondAttribute="centerX" id="WQy-ey-vRv"/>
                             <constraint firstItem="Rkg-re-RT9" firstAttribute="centerX" secondItem="Flc-NN-2HJ" secondAttribute="centerX" id="aqc-dg-zS5"/>
                             <constraint firstItem="Mvx-ZK-caR" firstAttribute="leading" secondItem="Flc-NN-2HJ" secondAttribute="leading" id="gyS-2U-6oi"/>
                             <constraint firstItem="Mvx-ZK-caR" firstAttribute="leading" secondItem="cUD-gD-eXM" secondAttribute="leadingMargin" id="pm2-0E-Bbo"/>
                             <constraint firstAttribute="trailing" secondItem="Rkg-re-RT9" secondAttribute="trailing" id="t8L-U8-7kl"/>
+                            <constraint firstItem="ihg-SK-Rpv" firstAttribute="top" secondItem="J30-hA-DHI" secondAttribute="bottom" constant="8" id="thq-y1-QGj"/>
                             <constraint firstItem="Mvx-ZK-caR" firstAttribute="top" secondItem="7e3-ZW-yDc" secondAttribute="top" constant="217" id="wWH-hP-Qjv"/>
                             <constraint firstItem="7e3-ZW-yDc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mvx-ZK-caR" secondAttribute="trailing" symbolic="YES" id="wiE-D5-bu5"/>
                             <constraint firstItem="7e3-ZW-yDc" firstAttribute="bottom" secondItem="J30-hA-DHI" secondAttribute="bottom" constant="199" id="xHo-CU-eUJ"/>
@@ -73,6 +82,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eX-Om-dXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="147.82608695652175" y="138.61607142857142"/>
+        </scene>
+        <!--Add User View Controller-->
+        <scene sceneID="6eu-wv-V31">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="5co-kV-YHF" customClass="AddUserViewController" customModule="FlightManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ERo-Tk-kwc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvK-M7-6vz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="ユーザー登録" id="ZCD-4N-uxR">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xmJ-8C-AUD"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cal-H0-wwX">
+                                            <connections>
+                                                <action selector="done:" destination="5co-kV-YHF" id="VG2-SL-Kcx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kfx-zO-75T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MvK-M7-6vz" firstAttribute="leading" secondItem="kfx-zO-75T" secondAttribute="leading" id="WHg-mt-Tne"/>
+                            <constraint firstItem="MvK-M7-6vz" firstAttribute="centerX" secondItem="ERo-Tk-kwc" secondAttribute="centerX" id="WmH-Lr-3y2"/>
+                            <constraint firstItem="MvK-M7-6vz" firstAttribute="top" secondItem="kfx-zO-75T" secondAttribute="top" id="xB1-1t-99w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jt2-ha-qne"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="xmJ-8C-AUD" id="84d-v6-EIL"/>
+                        <outlet property="doneButton" destination="cal-H0-wwX" id="jmy-kA-rLK"/>
+                        <outlet property="myNavigationBar" destination="MvK-M7-6vz" id="8gI-9B-JPc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie7-Gc-PC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="852"/>
         </scene>
         <!--飛行実績一覧-->
         <scene sceneID="tne-QT-ifu">
@@ -159,6 +209,7 @@
                                     <navigationItem title="飛行実績編集" id="bxK-NW-aZ0">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kD5-F0-iqT">
                                             <connections>
+                                                <action selector="cancel:" destination="eyH-lE-V5K" id="3dL-9e-8v8"/>
                                                 <segue destination="BYZ-38-t0r" kind="show" id="1ga-Qt-uXx"/>
                                             </connections>
                                         </barButtonItem>
@@ -181,6 +232,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bo-6C-Wws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="eyH-lE-V5K" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1042" y="852"/>
         </scene>
@@ -306,7 +358,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXD-ga-Fo7">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXD-ga-Fo7">
                                 <rect key="frame" x="156" y="687" width="102" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="レベル確認"/>
@@ -322,6 +374,12 @@
                                     <action selector="EnterLevel:" destination="6ZX-Jf-TIt" eventType="touchUpInside" id="zc2-S4-AlJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在のレベル：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-jP-g66">
+                                <rect key="frame" x="146" y="775" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y1o-e9-14x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -352,8 +410,10 @@
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="trailing" secondItem="kzi-th-eq9" secondAttribute="trailing" constant="12" id="kgh-qJ-cuQ"/>
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="bottom" secondItem="xDZ-Xi-pgo" secondAttribute="bottom" constant="193" id="lfD-vT-Rj4"/>
                             <constraint firstItem="kzi-th-eq9" firstAttribute="width" secondItem="xDZ-Xi-pgo" secondAttribute="width" id="oKe-AI-Gsi"/>
+                            <constraint firstItem="gr9-jP-g66" firstAttribute="top" secondItem="ZZi-HA-HrL" secondAttribute="bottom" constant="8" id="peT-bx-iMr"/>
                             <constraint firstItem="dOd-gi-EFb" firstAttribute="baseline" secondItem="cTE-lN-NZH" secondAttribute="baseline" id="phu-h5-X4q"/>
                             <constraint firstItem="Y1o-e9-14x" firstAttribute="bottom" secondItem="HXD-ga-Fo7" secondAttribute="bottom" constant="139" id="qLv-UJ-rQd"/>
+                            <constraint firstItem="gr9-jP-g66" firstAttribute="centerX" secondItem="ZZi-HA-HrL" secondAttribute="centerX" id="qVL-JC-tef"/>
                             <constraint firstItem="kzi-th-eq9" firstAttribute="bottom" secondItem="xDZ-Xi-pgo" secondAttribute="bottom" id="rOZ-qs-Qek"/>
                             <constraint firstItem="dOd-gi-EFb" firstAttribute="top" secondItem="Y1o-e9-14x" secondAttribute="top" id="rfh-mN-fcg"/>
                             <constraint firstItem="ZZi-HA-HrL" firstAttribute="leading" secondItem="HXD-ga-Fo7" secondAttribute="leading" id="s0V-9W-AMw"/>
@@ -375,6 +435,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="hourLabel" destination="mZk-kb-Pdt" id="x39-76-ewU"/>
+                        <outlet property="memo" destination="gr9-jP-g66" id="rEu-Fe-wh6"/>
                         <outlet property="minuteLabel" destination="hDX-kn-g69" id="nQN-iB-8nu"/>
                         <outlet property="resetButton" destination="kzi-th-eq9" id="y9B-RA-aDl"/>
                         <outlet property="saveButton" destination="dOd-gi-EFb" id="5wG-79-UdU"/>
@@ -1235,8 +1296,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y6B-wn-aql"/>
-        <segue reference="ddE-yI-pvL"/>
+        <segue reference="WLb-u6-aJ9"/>
+        <segue reference="1ga-Qt-uXx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>

@@ -16,6 +16,7 @@ class StopWatchViewController: UIViewController {
     var selectedMode = ""
     var flightPlace = ""
     var flightTime = ""
+    var level = ""
     
     var isRunning = false
     var getDateFlg = false
@@ -34,11 +35,15 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var memo: UILabel!
     
+    let Ref = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(ViewModel.selectedOperatorID)
+        memo.text = ViewModel.skillLevel
         hourLabel.adjustsFontSizeToFitWidth = true
         minuteLabel.adjustsFontSizeToFitWidth = true
         secondLabel.adjustsFontSizeToFitWidth = true
@@ -140,7 +145,6 @@ class StopWatchViewController: UIViewController {
             self.getDateFlg = false
             //レコードIDを発行
             self.getRecordID()
-            
             //データを保存
             self.insertData()
             
@@ -159,6 +163,7 @@ class StopWatchViewController: UIViewController {
     
     }
     
+    //レベル入力フォームをアラートで表示
     @IBAction func EnterLevel(_ sender: UIButton) {
         
         var alertTextField: UITextField?
@@ -168,16 +173,11 @@ class StopWatchViewController: UIViewController {
             message: "操縦レベルを入力してください。",
             preferredStyle: UIAlertController.Style.alert)
         
-//        alert.addTextField { textField in
-//            let heightConstraint = NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
-//            textField.addConstraint(heightConstraint)
-//        }
-        
         alert.addTextField(
             configurationHandler: {(textField: UITextField!) in
                 alertTextField = textField
                 textField.frame.size = CGSize(width: 50, height: 200)
-                textField.placeholder = "基本移動Aモード習得"
+                textField.placeholder = "Aモード基本移動習得済"
         })
         alert.addAction(
             UIAlertAction(
@@ -187,8 +187,17 @@ class StopWatchViewController: UIViewController {
         alert.addAction(
             UIAlertAction(
                 title: "OK",
-                style: UIAlertAction.Style.default) { _ in
-                ViewModel.memo = (alertTextField?.text)!
+                style: UIAlertAction.Style.default) { [self] _ in
+                memo.text = "現在のレベル：　" + (alertTextField?.text!)!
+                Ref.collection("OperatorInfo").document(ViewModel.selectedOperatorID.description).updateData([
+                    "SkillLevel": memo.text!
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
             }
         )
 
@@ -200,8 +209,7 @@ class StopWatchViewController: UIViewController {
     //飛行実績を保存
     func insertData() {
         
-        let db = Firestore.firestore()
-        db.collection("FlightInfo").document(ViewModel.maxRecordID.description).setData([
+        Ref.collection("FlightInfo").document(ViewModel.maxRecordID.description).setData([
             "RecordID": ViewModel.maxRecordID,
             "OperatorID": ViewModel.selectedOperatorID,
             "DroneName": selectedDrone,
@@ -211,7 +219,6 @@ class StopWatchViewController: UIViewController {
             "FlightStartTime": startDate,
             "FlightEndTime": endDate,
             "FlightTime": flightTime,
-            "Memo": ViewModel.memo,
             "Timestamp": FieldValue.serverTimestamp()
         
         ]) { error in

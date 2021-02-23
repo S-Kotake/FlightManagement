@@ -21,8 +21,9 @@ class StartViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ViewModel.selectedOperatorID = ""
+        ViewModel.selectedOperatorID = 0
         ViewModel.selectedOperatorName = ""
+        ViewModel.skillLevel = ""
         
         operatorNameForm.delegate = self
         operatorNameForm.layer.borderWidth = 0.5
@@ -33,12 +34,15 @@ class StartViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
         
         startButton.backgroundColor = .systemGray5
         startButton.isEnabled = false
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
         //表示用の操縦者情報を取得する
         self.getOperatorData()
         //ピッカービューにデータを設定
         self.createPickerView()
-
     }
     
     //データ取得
@@ -77,9 +81,6 @@ class StartViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
         } else {
             startButton.isEnabled = true
             startButton.backgroundColor = .systemTeal
-//            startButton.backgroundColor = UIColor(red: 0, green: 40, blue: 100, alpha: 1)
-//            startButton.layer.borderWidth = 0.5
-//            startButton.layer.borderColor = UIColor(red: 50, green: 165, blue: 230, alpha: 1).cgColor
         }
     }
 
@@ -113,6 +114,7 @@ class StartViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
             operatorNameForm.text = operatorInfoArray[row - 1].operatorName
             ViewModel.selectedOperatorID = operatorInfoArray[row - 1].operatorID!
             ViewModel.selectedOperatorName = operatorInfoArray[row - 1].operatorName!
+            ViewModel.skillLevel = operatorInfoArray[row - 1].skillLevel!
         }
     }
 
